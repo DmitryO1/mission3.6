@@ -1,9 +1,6 @@
 package com.company;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.*;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -21,6 +18,9 @@ public class Main {
         System.out.println(Arrays.toString(array));
 
         System.out.println(Arrays.toString(sort(array)));
+
+        writingArrayInFile(textfile,array);
+
     }
 
     public static int[] readArr(String file) throws Exception {
@@ -62,4 +62,13 @@ public class Main {
         return a;
     }
 
+    public static void writingArrayInFile(String file, int a[]) throws Exception{
+        String fileSource = file;
+        int []array = a;
+        PrintWriter printWriter = new PrintWriter(fileSource);
+        printWriter.print(array);
+        printWriter.close();
+        System.out.println("Write into file :" + Arrays.toString(array));
+
+    }
 }
