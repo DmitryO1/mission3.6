@@ -15,11 +15,9 @@ public class TxtOut implements OutputResultAfterSorting{
         try {
             System.out.println("Введите тип сортировки");
             System.out.println(typeSort);
-            a = readArrayInFile.readArr(textfile);
-            System.out.print("Maccив: ");
-            System.out.println(Arrays.toString(a));
-            System.out.print("Отсортированный массив: ");
-            getTypeSorting.getTypeSorting(typeSort, a);
+
+
+
         }
         catch (Exception e){
             System.out.print("Ошибка");

@@ -23,28 +23,32 @@ public  class Main {
 
 
 
-        if (args.length < 2) {
+        if (args.length < 3) {
             System.out.println("Недостаточно агрументов");
         }
             String textfile = args[0];
             String typeSort  = args[1];
+            String format = args[2];
 
             ReadJSON readJSON = new ReadJSON();
             ReadFile readFile = new ReadFile();
             GetTypeSorting getTypeSorting = new GetTypeSorting();
             ReadArrayInFile readArrayInFile = new ReadArrayInFile();
             JsonOut jsonOut = new JsonOut();
-            TxtOut txtOut = new TxtOut();
+
             String resStr;
             int[] a = new int[]{};
 
 
             if (textfile.equals("test.txt")) {
                 txtOut.resultAfterSorting(a,typeSort,textfile);
-
+                System.out.print("Отсортированный массив: ");
+                getTypeSorting.getTypeSorting(typeSort, a);
 
             } else if (textfile.equals("test1.txt")) {
                 jsonOut.resultAfterSorting(a,typeSort,textfile);
+                System.out.print("Отсортированный массив: ");
+                getTypeSorting.getTypeSorting(typeSort, a);
 
             } else System.out.println("Файл не найден");
 
