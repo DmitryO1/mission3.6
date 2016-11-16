@@ -23,44 +23,29 @@ public  class Main {
 
 
 
-        if (args.length < 3) {
+        if (args.length < 2) {
             System.out.println("Недостаточно агрументов");
         }
-
-        String textfile = args[0];
-        String format  = args[1];
-        String typeSort  = args[2];
-
+            String textfile = args[0];
+            String typeSort  = args[1];
 
             ReadJSON readJSON = new ReadJSON();
             ReadFile readFile = new ReadFile();
             GetTypeSorting getTypeSorting = new GetTypeSorting();
             ReadArrayInFile readArrayInFile = new ReadArrayInFile();
-            Gson parser = new Gson();
+            JsonOut jsonOut = new JsonOut();
+            TxtOut txtOut = new TxtOut();
             String resStr;
-            Scanner in = new Scanner(System.in);
+            int[] a = new int[]{};
 
 
             if (textfile.equals("test.txt")) {
-                System.out.println("Введите тип сортировки");
-                System.out.println(typeSort);
-                int[] a = new int[]{};
-                a = readArrayInFile.readArr(textfile);
-                System.out.print("Maccив: ");
-                System.out.println(Arrays.toString(a));
-                System.out.print("Отсортированный массив: ");
-                getTypeSorting.getTypeSorting(typeSort, a);
-            } else if (textfile.equals("test1.txt")) {
-                System.out.println("Введите тип сортировки");
-                System.out.println(typeSort);
-                int[] a = new int[]{};
-                resStr = readFile.read();
-                System.out.print("Maccив: ");
-                System.out.println(resStr);
+                txtOut.resultAfterSorting(a,typeSort,textfile);
 
-                int[] arr = readJSON.toArray(resStr, parser);//Парсинг в массив
-                System.out.print("Отсортированный массив: ");
-                getTypeSorting.getTypeSorting(typeSort, arr);
+
+            } else if (textfile.equals("test1.txt")) {
+                jsonOut.resultAfterSorting(a,typeSort,textfile);
+
             } else System.out.println("Файл не найден");
 
 
