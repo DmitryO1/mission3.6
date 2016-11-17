@@ -5,6 +5,8 @@ package com.company;
  */
 public class InserSort implements SortAlgorithms {
 
+    public final static String INSER = "insertion";
+
         @Override
         public int[] sortingAlogritm(int[] a) {
 

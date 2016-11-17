@@ -5,8 +5,12 @@ package com.company;
  */
 public class BubleSort implements  SortAlgorithms {
 
+    public static final String BUBLE = "buble";
+
             @Override
             public int[] sortingAlogritm(int[] a) {
+
+
 
                 for(int i=a.length-1;i>0;i--) {
                     for(int j=0;j<i;j++){

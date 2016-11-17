@@ -1,23 +1,33 @@
 package com.company;
 
+import com.google.gson.Gson;
+
+import java.io.File;
+import java.io.IOException;
 import java.util.Arrays;
+import java.util.Scanner;
 
 /**
  * Created by Dmitry on 16.11.2016.
  */
 public class FormatJson implements Format{
-    public String json = "test1.txt";
+
     ReadArrayInFile readArrayInFile = new ReadArrayInFile();
-    JsonOut jsonOut = new JsonOut();
-    int[]a;
+    public final static String json = "json";
 
 
     @Override
-    public int[] format(String txt) throws Exception {
+    public int[] format(String json) throws Exception {
 
-        a = readArrayInFile.readArr(txt);
-        System.out.print("Maccив: ");
-        System.out.println(Arrays.toString(a));
-        return  a;
+        Scanner in = new Scanner(new File(json));
+        String str = null;
+        while (in.hasNext()) {
+                str = in.nextLine();
+            }
+
+        Gson parser = new Gson();
+
+        return parser.fromJson(str, int[].class);
     }
+
 }

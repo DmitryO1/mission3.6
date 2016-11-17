@@ -5,7 +5,9 @@ package com.company;
  */
 public class MergeSort implements SortAlgorithms{
 
-        @Override
+    public final static String MERGE = "merge";
+
+    @Override
         public int[] sortingAlogritm(int[] a) {
 
             if (a.length <= 1) {

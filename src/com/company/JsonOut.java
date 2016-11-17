@@ -1,37 +1,31 @@
 package com.company;
+
 import com.google.gson.Gson;
 
-import java.util.Arrays;
+import java.io.File;
+import java.util.Scanner;
 
 /**
- * Created by Dmitry on 16.11.2016.
+ * Created by Dmitry on 17.11.2016.
  */
-public class JsonOut implements OutputResultAfterSorting {
-
-
-    GetTypeSorting getTypeSorting = new GetTypeSorting();
-    ReadFile readFile = new ReadFile();
-    ReadJSON readJSON = new ReadJSON();
-    Gson parser = new Gson();
-    String resStr;
+public class JsonOut implements OutputResultAfterSorting{
 
     @Override
-        public void resultAfterSorting(int[] a, String typeSort, String textfile) {
-    try {
-        System.out.println("Введите тип сортировки");
-        System.out.println(typeSort);
-        resStr = readFile.read();
-        System.out.print("Maccив: ");
-        System.out.println(resStr);
+    public int[] resultAfterSorting(String textFile) {
+        try {
+            Scanner in = new Scanner(new File(textFile));
+            String str = null;
+            while (in.hasNext()) {
+                str = in.nextLine();
+            }
 
-        int[] arr = readJSON.toArray(resStr, parser);//Парсинг в массив
-        System.out.print("Отсортированный массив: ");
-        getTypeSorting.getTypeSorting(typeSort, arr);
-    }
-    catch (Exception e){
-        System.out.print("Ошибка");
-    }
-    }
+            Gson parser = new Gson();
 
+            return parser.fromJson(str, int[].class);
+        } catch (Exception e) {
+            System.out.println("Error");
+        }
+            return null;
 
+    }
 }

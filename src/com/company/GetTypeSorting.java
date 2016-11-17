@@ -9,23 +9,21 @@ import static java.lang.System.in;
  */
 public class GetTypeSorting {
 
-    BubleSort bubleSort = new BubleSort();
-    MergeSort mergeSort = new MergeSort();
-    InserSort inserSort = new InserSort();
+
+    public SortAlgorithms getTypeSorting(String typeSort){
 
 
-    public void getTypeSorting(String typeSort, int []a){
-
-        if(typeSort.equals("buble")){
-            System.out.println(Arrays.toString(bubleSort.sortingAlogritm(a)));
+        if(typeSort.equals(BubleSort.BUBLE)){
+            return new BubleSort();
         }
-        else if(typeSort.equals("merge")){
-            System.out.println(Arrays.toString(mergeSort.sortingAlogritm(a)));
+        else if(typeSort.equals(MergeSort.MERGE)){
+            return new MergeSort();
         }
-        else if(typeSort.equals("insertion")){
-            System.out.println(Arrays.toString(inserSort.sortingAlogritm(a)));
+        else if(typeSort.equals(InserSort.INSER)){
+            return new InserSort();
         }
         else  System.out.println("Указан неправильный тип сортировки");
+        return null;
     }
 
 }

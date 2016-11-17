@@ -8,16 +8,13 @@ import java.util.Arrays;
 public class FormatTxt implements Format {
 
     ReadArrayInFile readArrayInFile = new ReadArrayInFile();
-    TxtOut txtOut = new TxtOut();
-    public String txt = "test.txt";
-    int[] a;
+    public final static String formatTxt = "txt";
+
 
     @Override
     public int[] format(String txt) throws Exception {
 
-        a = readArrayInFile.readArr(txt);
-        System.out.print("Maccив: ");
-        System.out.println(Arrays.toString(a));
+        int [] a = readArrayInFile.readArr(txt);
         return  a;
     }
 }

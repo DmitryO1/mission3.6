@@ -5,6 +5,6 @@ package com.company;
  */
 public interface OutputResultAfterSorting {
 
-    void resultAfterSorting (int[]a, String typeSort, String textFile);
+    int[] resultAfterSorting (String textFile);
 
 }
